@@ -24,5 +24,4 @@
 
 ---
 
-Hy vọng bạn sẽ thấy giải thích này dễ hiểu và hữu ích!
 
