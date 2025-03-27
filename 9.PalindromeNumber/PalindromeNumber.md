@@ -1,37 +1,31 @@
-Bước 1: Kiểm tra số âm
-Đầu tiên, chương trình kiểm tra nếu số x là số âm. Số âm không thể là số đối xứng, vì dấu âm sẽ không tồn tại sau khi đảo ngược. Nếu x nhỏ hơn 0, hàm sẽ trả về false.
+### Kiểm tra số đối xứng (Palindrome) trong C++
 
-cpp
-Sao chép
-if (x < 0) {
-    return false;
-}
-Bước 2: Lưu trữ số đảo ngược
-Để kiểm tra nếu một số là đối xứng, chúng ta cần đảo ngược số đó và so sánh với số ban đầu. Đoạn mã dưới đây thực hiện điều này:
+Đoạn mã dưới đây kiểm tra xem một số nguyên có phải là số đối xứng (Palindrome) hay không. Một số đối xứng là số mà khi đảo ngược các chữ số của nó, giá trị vẫn giữ nguyên.
 
-Lưu giá trị của x vào biến temp để giữ nguyên số gốc.
+#### Các bước thực hiện:
 
-Sử dụng một biến count để tính toán số đảo ngược bằng cách chia temp liên tục cho 10 và cộng dồn các chữ số đã lấy được vào count.
+1. **Kiểm tra số âm**:
+   - Nếu số `x` nhỏ hơn 0, thì không thể là số đối xứng, vì dấu âm sẽ không tồn tại sau khi đảo ngược. Hàm sẽ trả về `false` nếu số là âm.
 
-cpp
-Sao chép
+   ```cpp
+   if (x < 0) {
+       return false;
+   }
+
+Đảo ngược số:
+
+Lưu giá trị ban đầu của số vào một biến temp.
+
+Dùng một biến count để lưu số đảo ngược. Mỗi lần lấy chữ số cuối cùng của temp và cộng dồn vào count.
+
 long long count = 0;
 int temp = x;
 while (temp > 0) {
-    count = count * 10 + temp % 10;  // Lấy chữ số cuối cùng và ghép vào số đảo ngược
+    count = count * 10 + temp % 10;  // Lấy chữ số cuối cùng
     temp /= 10;  // Cắt bỏ chữ số cuối cùng
 }
-Bước 3: So sánh số gốc với số đảo ngược
-Sau khi số đã được đảo ngược và lưu trong biến count, chúng ta so sánh số ban đầu (x) với số đảo ngược (count). Nếu chúng bằng nhau, số này là số đối xứng và hàm trả về true, ngược lại trả về false.
+So sánh số ban đầu với số đảo ngược:
 
-cpp
-Sao chép
+So sánh số đảo ngược (count) với số ban đầu (x). Nếu chúng bằng nhau, tức là số đối xứng và hàm trả về true. Nếu không, trả về false.
+
 return count == x;  // Kiểm tra số đảo ngược có bằng số ban đầu không
-Tổng kết
-Đoạn mã trên giúp bạn kiểm tra liệu một số nguyên có phải là số đối xứng hay không thông qua các bước:
-
-Loại bỏ số âm.
-
-Đảo ngược số nguyên.
-
-So sánh số đảo ngược với số ban đầu.
