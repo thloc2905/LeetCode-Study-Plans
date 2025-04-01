@@ -33,7 +33,6 @@ public:
                 else {
                     ans.push_back('a');
                     ans.push_back('l');
-                    i += 3;  // Bỏ qua '(al)'
                 }
             }
         }
